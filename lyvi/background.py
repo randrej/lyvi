@@ -102,6 +102,7 @@ class Background:
                 or (self.type == 'cover' and lyvi.md.cover and lyvi.md.album))
                 and not clean):
             image = blend(getattr(lyvi.md, self.type), self.opacity)
+            image = image.convert('RGB')
         else:
             image = Image.new('RGB', (100, 100), BG_COLOR)
         image.save(self.FILE)
